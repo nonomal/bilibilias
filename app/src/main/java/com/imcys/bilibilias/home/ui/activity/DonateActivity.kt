@@ -7,13 +7,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.baidu.mobstat.StatService
 import com.imcys.bilibilias.R
 import com.imcys.bilibilias.base.BaseActivity
+import com.imcys.bilibilias.base.network.NetworkService
 import com.imcys.bilibilias.common.base.api.BiliBiliAsApi
+import com.imcys.bilibilias.common.base.utils.http.HttpUtils
 import com.imcys.bilibilias.databinding.ActivityDonateBinding
 import com.imcys.bilibilias.home.ui.adapter.DonateItemAdapter
 import com.imcys.bilibilias.home.ui.model.DonateViewBean
 import com.imcys.bilibilias.home.ui.model.OldDonateBean
 import com.imcys.bilibilias.home.ui.model.TipBean
-import com.imcys.bilibilias.common.base.utils.http.HttpUtils
 import com.zackratos.ultimatebarx.ultimatebarx.addStatusBarTopPadding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -25,6 +26,9 @@ class DonateActivity : BaseActivity() {
 
     @Inject
     lateinit var donateAdapter: DonateItemAdapter
+    @Inject
+    lateinit var networkService: NetworkService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_donate)
@@ -54,13 +58,15 @@ class DonateActivity : BaseActivity() {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun loadDonateData() {
-        HttpUtils.get("${BiliBiliAsApi.appFunction}?type=Donate", OldDonateBean::class.java) {
+
+        launchUI {
+            val donateData = networkService.getDonateData()
             val newMutableList = mutableListOf<DonateViewBean>()
             donateMutableList.add(
                 DonateViewBean(PAY_XML)
             )
             newMutableList.add(
-                DonateViewBean(PAY_PROGRESS, it)
+                DonateViewBean(PAY_PROGRESS, donateData)
             )
             newMutableList.add(
                 DonateViewBean(PAY_DOC)
@@ -69,11 +75,11 @@ class DonateActivity : BaseActivity() {
                 DonateViewBean(
                     PAY_TIP,
                     tipBean = TipBean(
-                        "为其他参与者捐款",
-                        "现在你有更多选择",
-                        "你不仅仅可以给服务器捐款，你还可以去看看参与贡献的人员，你对哪方面感到有价值，那么你就可以选择为其应援。",
+                        getString(R.string.app_donate_tip_title),
+                        getString(R.string.app_donate_tip_long_title),
+                        getString(R.string.app_donate_tip_doc),
                         getDrawable(R.drawable.ic_home_red_envelopes)!!,
-                        "",
+                        getString(R.string.app_donate_tip_link),
                         DedicateActivity::class.java
                     )
                 )

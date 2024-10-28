@@ -7,10 +7,14 @@ import android.os.Build
 import android.provider.MediaStore
 import androidx.loader.content.CursorLoader
 import com.microsoft.appcenter.utils.storage.FileManager.deleteDirectory
-import java.io.*
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.File
+import java.io.FileReader
+import java.io.FileWriter
+import java.io.IOException
 import java.nio.file.Files
 import java.nio.file.Paths
-
 
 /**
  * 文件操作类
@@ -35,7 +39,6 @@ object FileUtils {
         }
     }
 
-
     /** 删除文件，可以是文件或文件夹
      * @param delFile 要删除的文件夹或文件名
      * @return 删除成功返回true，否则返回false
@@ -49,10 +52,9 @@ object FileUtils {
         }
     }
 
-
     /**
      * 删除单个文件
-     * @param   sPath    被删除文件的文件名
+     * @param sPath    被删除文件的文件名
      * @return 单个文件删除成功返回true，否则返回false
      */
     private fun mDeleteFile(sPath: String?): Boolean {
@@ -60,12 +62,10 @@ object FileUtils {
         val file = File(sPath!!)
         // 路径为文件且不为空则进行删除
         if (file.isFile && file.exists()) {
-            file.delete()
-            flag = true
+            flag = file.delete()
         }
         return flag
     }
-
 
     fun fileRead(path: String?): String? {
         val file = File(path.toString())
@@ -79,7 +79,6 @@ object FileUtils {
         val br = BufferedReader(fr)
         return br.readLine()
     }
-
 
     fun fileWrite(path: String?, Str: String?) {
         val file = File(path.toString())
@@ -107,6 +106,4 @@ object FileUtils {
         cursor.moveToFirst()
         return cursor.getString(columnIndex)
     }
-
-
 }

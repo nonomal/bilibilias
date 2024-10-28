@@ -1,11 +1,10 @@
-package com.imcys.bilibilias.base.utils
+package com.imcys.bilibilias.common.base.utils
 
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
 
-
-//顶层方法
+// 顶层方法
 fun asLogI(tag: String, content: String) = Log.i(tag, content)
 
 fun asLogD(tag: String, content: String) = Log.d(tag, content)

@@ -1,13 +1,13 @@
 <div align="center">
 
-![](https://github.com/1250422131/bilibilias/blob/develop/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
-
 # BILIBILIAS
+
+![bilibilias](https://socialify.git.ci/1250422131/bilibilias/image?description=1&descriptionEditable=%E4%BE%BF%E6%8D%B7%E7%9A%84%E7%BC%93%E5%AD%98B%E7%AB%99%E8%A7%86%E9%A2%91%E5%92%8C%E7%95%AA%E5%89%A7&font=Inter&forks=1&language=1&logo=https%3A%2F%2Fi0.hdslb.com%2Fbfs%2Fim_new%2F18b70b81972a79923f179106c406910a351201307.png&name=1&owner=1&pattern=Circuit%20Board&stargazers=1&theme=Auto)
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/1250422131/bilibilias?label=version)
 ![Android Sdk Require](https://img.shields.io/badge/android-5.0%2B-informational)
 ![GitHub](https://img.shields.io/github/license/1250422131/bilibilias)
-[![Kotlin](https://img.shields.io/badge/kotlin-1.7.10-blue.svg?logo=kotlin)](http://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/kotlin-2.0.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
 
 </div>
 
@@ -16,11 +16,11 @@
 **Languages:**
 - [English (United States)](./README-en_US.md)
 - [简体中文](./README.md)
-- 臺灣正體
+- 繁体中文(台湾)
 
 ## 簡介
 
-**BILIBILIAS** 是一款B站哔哩哔哩影片快取的輔助工具，一鍵解析快取。
+**BILIBILIAS** 是一款B站，哔哩哔哩影片快取的輔助工具，一鍵解析快取。
 
 使用它來幫助你快取影片，目前我們也支持了相當多的功能，使用它幫助你完成工作。
 
@@ -31,7 +31,7 @@ UP主可以下載一些剪輯素材，來製作影片。
 ## 支持的功能
 
 - 完成的功能
-- [x] 掃QR碼登錄
+- [x] 掃描QR碼登錄
 - [x] 快取影片/大陸支持播放的番劇
 - [x] 個人中心 -> 幫助快取自己的影片
 - [x] 批量下載
@@ -80,6 +80,10 @@ UP主可以下載一些剪輯素材，來製作影片。
 |   系統    |                            GitHub                            |                  官網                  |
 |:-------:|:------------------------------------------------------------:|:------------------------------------:|
 | Android | [Release](https://github.com/1250422131/bilibilias/releases) | [官網](https://api.misakamoe.com/app/) |
+
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-zh-hant.png"
+    alt="取得於 F-Droid 立即下載"
+    height="80">](https://f-droid.org/packages/com.imcys.bilibilias)
 
 ## 🔭最近關注
 
